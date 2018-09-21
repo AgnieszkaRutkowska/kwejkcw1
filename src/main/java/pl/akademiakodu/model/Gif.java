@@ -5,11 +5,21 @@ public class Gif {
     private String name;
     private String username;
     private boolean favorite;
+    private int categoryId;
 
-    public Gif(String name, String username, boolean favorite) {
+    public Gif(String name, String username, boolean favorite, int categoryId) {
         this.name = name;
         this.username = username;
         this.favorite = favorite;
+        this.categoryId = categoryId;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
