@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <section th:replace="layout :: header">
+
+    </section>
+
+    <title th:text="'giflib | ' + ${gif.name}">Kwejk</title>
+</head>
+<body>
+<div class="navbar-fixed" th:replace="layout :: navigation">
+
+</div>
+<div class="search-bar container">
+    <div class="row">
+        <div class="col s12">
+            <form action="#" method="get">
+                <div class="input-field">
+                    <input name="q" type="search" placeholder="Search all gifs..." required="required" autocomplete="off"/>
+                    <i class="material-icons">search</i>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="gif-detail container">
+    <div class="frame row">
+        <div class="col s12">
+            <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" alt="gif" />
+            <!-- <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'"></a>-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l6">
+            <div class="meta row">
+                <div class="col s3">
+                    <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar" />
+                </div>
+                <div class="col s9">
+                    <div th:text="${gif.username}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 l6">
+            <div class="share">
+                <a class="btn right" href="#">Copy</a>
+                <span th:text="'http://gif.fy/' + ${gif.name}">URL</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section th:replace="layout :: scripts">
+
+</section>
+</body>
+</html>
