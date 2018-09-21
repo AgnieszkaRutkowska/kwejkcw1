@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.akademiakodu.data.GifRepository;
 import pl.akademiakodu.model.Gif;
 
+import javax.jws.WebParam;
 import java.util.List;
 
 
@@ -31,6 +32,15 @@ public class GifController {
          Gif gif = gifRepository.findByName(name);
             modelMap.put("gif",gif);
             return "gif-details";
+
+    }
+
+    @RequestMapping ("/favorites")
+    public String getFavorites(ModelMap modelMap) {
+       List<Gif> gifs = gifRepository.getFavorites();
+       modelMap.put("gifs", gifs);
+       return "favorites";
+
 
     }
 
