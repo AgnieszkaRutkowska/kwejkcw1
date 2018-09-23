@@ -21,9 +21,7 @@ public class GifRepository {
         );
 
     public Gif findByName(String name) {
-
         for(Gif gif : ALL_GIFS) {
-
             if (gif.getName().equals(name)) {
                 return gif;
                }
@@ -42,6 +40,15 @@ public class GifRepository {
                  }
             }
             return gifs;
+    }
+    public List<Gif> getByCategories(int id) {
+        List<Gif> gifs = new ArrayList<>();
+        for (Gif gif : ALL_GIFS) {
+            if (gif.getCategoryId() == id) {
+                gifs.add(gif);
+            }
+        }
+        return gifs;
     }
 
 }
